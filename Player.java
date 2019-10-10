@@ -9,5 +9,4 @@ public abstract class Player{
     public void getDecision(){}
     public void endParticipation(){}
     public void receiveWinnersResult(){}
-
 }
