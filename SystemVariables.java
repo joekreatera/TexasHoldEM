@@ -4,7 +4,7 @@ public class SystemVariables{
   public void setUserInterface(UserInterface userInterface){
     this.userInterface = userInterface;
   }
-  public UserInterface getInterface(){
+  public UserInterface getUserInterface(){
     return userInterface;
   }
   public SystemVariables(){

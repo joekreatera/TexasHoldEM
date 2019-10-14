@@ -28,4 +28,8 @@ public class Card{
   public SUIT getSuit(){
     return suit;
   }
+  @Override
+  public String toString(){
+    return  "Card ("+suit+"){"+value+"}\n";
+  }
 }
