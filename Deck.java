@@ -14,11 +14,19 @@ public class Deck{
       }
 
   }
+  public Card popCard(){
+    try{
+      return cards.remove(0);
+    }catch(IndexOutOfBoundsException ioe){
+
+    }
+    return null;
+  }
   public void shuffle(){
-      for( int i = 0; i < cards.size() ; i++){
+      for( int i = 0; i < cards.size()*cards.size()*cards.size()*cards.size() ; i++){
         // -> your implementation
-          int rand0= (int)(cards.size()*Math.abs(PerlinNoise.noise(Math.random()*255,Math.random()*255,Math.random()*255)));
-          int rand1= (int)(cards.size()*Math.abs(PerlinNoise.noise(Math.random()*255,Math.random()*255,Math.random()*255)));
+          int rand0= (int)((cards.size()-1)*Math.abs(PerlinNoise.noise(Math.random()*255,Math.random()*255,Math.random()*255)));
+          int rand1= (int)((cards.size()-1)*Math.abs(PerlinNoise.noise(Math.random()*255,Math.random()*255,Math.random()*255)));
           Card a = cards.get(rand0);
           Card b = cards.get(rand1);
           cards.set(rand0,b);
