@@ -1,10 +1,12 @@
 import java.util.*;
+import java.util.concurrent.*;
 
 public class TexasHoldEm{
     List <Player>players;
     Deck deck;
     List<Card> centerHand;
     int pot= 0;
+    Queue<Player> queue;
     public TexasHoldEm(){
         SystemVariables.getInstance().setUserInterface(
                                               new TextUserInterface()
@@ -16,6 +18,7 @@ public class TexasHoldEm{
         for(Player p: players){
           p.receiveChips(1000);
         }
+        queue = new ArrayBlockingQueue<Player>(players.size());
     }
     public void initializeRound(int ante){
         // deal cards
@@ -26,6 +29,7 @@ public class TexasHoldEm{
             pot += ante;
             players.get(i).addCard(deck.popCard());
             players.get(i).addCard(deck.popCard());
+            queue.add(players.get(i));
           }
 
         }
@@ -43,6 +47,17 @@ public class TexasHoldEm{
     }
     public void playRound(){
       //human1.doTurn();
+      /*
+       for each element qeueu
+          pop element
+          get DECISION
+          if decision == check || RAISE
+            push element to queue
+          check if there is one element only in queue ||
+              all elements in player no RAISE decision
+        check winner
+        send results
+      */
     }
     public static void main(String args[]){
       TexasHoldEm game = new TexasHoldEm();
